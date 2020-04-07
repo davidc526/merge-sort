@@ -8,15 +8,24 @@ function split(wholeArray) {
 }
 
 function merge(arr1, arr2) {
-  let pointerA = arr1[0];
-  let pointerB = arr2[0];
-  let temp = 0;
+  let newArr = [];
 
-  if (arr1[0] > arr2[0]) {
-    temp = arr1[0];
-    arr1[0] = arr2[0];
-    arr2[0] = temp;
+  while (arr1.length > 0 && arr2.length > 0) {
+    if (arr1[0] > arr2[0]) {
+      newArr.push(arr2.shift());
+    } else {
+      newArr.push(arr1.shift());
+    }
   }
 
-  console.log(arr1, arr2);
+  if (arr2.length > 0) {
+    newArr.push(arr2.shift());
+  }
+  if (arr1.length > 0) {
+    newArr.push(arr1.shift());
+  }
+
+  return newArr;
 }
+
+function mergeSort() {}
