@@ -19,13 +19,41 @@ function merge(arr1, arr2) {
   }
 
   if (arr2.length > 0) {
-    newArr.push(arr2.shift());
+    for(let i = 0; i < arr2.length; i++){
+      newArr.push(arr2[i])
+    }
+    
   }
   if (arr1.length > 0) {
-    newArr.push(arr1.shift());
+    for(let i = 0; i < arr1.length; i++){
+      newArr.push(arr1[i]);
+    }
   }
 
   return newArr;
 }
 
-function mergeSort() {}
+function mergeSort(wholeArray) {
+  if(wholeArray.length === 1){
+    return wholeArray;
+  } else{
+    const [firstHalf, secondHalf] = split(wholeArray);
+    return merge(mergeSort(firstHalf), mergeSort(secondHalf));
+  }
+  // let splitArray =[];
+  // let newArrays = split(wholeArray);
+  
+  // newArrays.map(array => {
+  //   if(array.length > 1){
+  //     // return splitArray = [...splitArray, mergeSort(array)];
+  //     mergeSort(array);
+
+  //   }else {
+  //     splitArray.push(array);
+      
+  //   }
+    
+  // });
+  // console.log(splitArray);
+  // return splitArray;
+}
